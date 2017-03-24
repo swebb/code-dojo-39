@@ -48,3 +48,12 @@ end
 if `ruby song.rb {}` != ""
   puts "0 animal test failed"
 end
+
+one_animal_song = <<-HEREDOC
+There was an old lady who swallowed a horse...
+...She's dead, of course!
+HEREDOC
+
+if `ruby song.rb "[ {animal: 'horse', line: '...She\\'s dead, of course!'} ]"` != one_animal_song
+  puts "1 animal test failed"
+end
