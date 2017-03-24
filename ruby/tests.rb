@@ -69,3 +69,20 @@ HEREDOC
 if `ruby song.rb "[ {animal: 'fly', line: 'I don\\'t know why she swallowed a fly - perhaps she\\'ll die!'}, {animal: 'horse', line: '...She\\'s dead, of course!'} ]"` != two_animals_song
   puts "2 animal test failed"
 end
+
+three_animals_song = <<-HEREDOC
+There was an old lady who swallowed a fly.
+I don't know why she swallowed a fly - perhaps she'll die!
+
+There was an old lady who swallowed a spider;
+That wriggled and wiggled and tickled inside her.
+She swallowed the spider to catch the fly;
+I don't know why she swallowed a fly - perhaps she'll die!
+
+There was an old lady who swallowed a horse...
+...She's dead, of course!
+HEREDOC
+
+if `ruby song.rb "[ {animal: 'fly', line: 'I don\\'t know why she swallowed a fly - perhaps she\\'ll die!'}, {animal: 'spider', line: 'That wriggled and wiggled and tickled inside her.'}, {animal: 'horse', line: '...She\\'s dead, of course!'} ]"` != three_animals_song
+  puts "3 animal test failed"
+end

@@ -1,17 +1,27 @@
 require "byebug"
 
-def sing_verse(stanza, delimiter)
-  puts "There was an old lady who swallowed a #{stanza[:animal]}#{delimiter}"
-  puts stanza[:line]
+def sing_verse(stanzas, delimiter)
+  if stanzas.length == 1
+    puts "There was an old lady who swallowed a #{stanzas.last[:animal]}#{delimiter}"
+    puts stanzas.last[:line]
+  else
+    puts "There was an old lady who swallowed a #{stanzas.last[:animal]};"
+    puts stanzas.last[:line]
+    lines = (1..stanzas.length-1).reverse_each.map do |index|
+      "She swallowed the #{stanzas[index][:animal]} to catch the #{stanzas[index-1][:animal]}"
+    end
+    puts "#{lines.join(",\n")};"
+    puts stanzas.first[:line]
+  end
 end
 
 def sing_song(stanzas)
   unless stanzas.empty?
-    stanzas[0..-2].each do |stanza|
-      sing_verse(stanza, ".")
+    (0..stanzas.length-2).each do |index|
+      sing_verse(stanzas.slice(0..index), ".")
       puts ""
     end
-    sing_verse(stanzas.last, "...")
+    sing_verse([stanzas.last], "...")
   end
 end
 
