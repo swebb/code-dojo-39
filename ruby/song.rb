@@ -26,7 +26,36 @@ def sing_song(stanzas)
 end
 
 if ARGV.empty?
-  puts `ruby song_legacy.rb`
+  sing_song([
+    {
+      animal: "fly",
+      line: "I don't know why she swallowed a fly - perhaps she'll die!"
+    },
+    {
+      animal: "spider",
+      line: "That wriggled and wiggled and tickled inside her."
+    },
+    {
+      animal: "bird",
+      line: "How absurd to swallow a bird."
+    },
+    {
+      animal: "cat",
+      line: "Fancy that to swallow a cat!"
+    },
+    {
+      animal: "dog",
+      line: "What a hog, to swallow a dog!"
+    },
+    {
+      animal: "cow",
+      line: "I don't know how she swallowed a cow!"
+    },
+    {
+      animal: "horse",
+      line: "...She's dead, of course!"
+    },
+  ])
 else
   sing_song(eval(ARGV[0]))
 end
