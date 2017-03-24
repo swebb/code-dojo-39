@@ -44,3 +44,7 @@ HEREDOC
 if `ruby song.rb` != song
   puts "Existing behaviour failed"
 end
+
+if `ruby song.rb {}` != ""
+  puts "0 animal test failed"
+end
