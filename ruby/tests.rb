@@ -57,3 +57,15 @@ HEREDOC
 if `ruby song.rb "[ {animal: 'horse', line: '...She\\'s dead, of course!'} ]"` != one_animal_song
   puts "1 animal test failed"
 end
+
+two_animals_song = <<-HEREDOC
+There was an old lady who swallowed a fly.
+I don't know why she swallowed a fly - perhaps she'll die!
+
+There was an old lady who swallowed a horse...
+...She's dead, of course!
+HEREDOC
+
+if `ruby song.rb "[ {animal: 'fly', line: 'I don\\'t know why she swallowed a fly - perhaps she\\'ll die!'}, {animal: 'horse', line: '...She\\'s dead, of course!'} ]"` != two_animals_song
+  puts "2 animal test failed"
+end
