@@ -1,5 +1,3 @@
-require "byebug"
-
 def sing_verse(stanzas, delimiter)
   if stanzas.length == 1
     puts "There was an old lady who swallowed a #{stanzas.last[:animal]}#{delimiter}"
